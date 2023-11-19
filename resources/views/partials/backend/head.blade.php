@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="{{asset('backend/assets')}}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="{{asset('backend/assets')}}/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
     <!-- Page CSS -->
 

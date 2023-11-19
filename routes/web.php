@@ -30,15 +30,18 @@ Route::get('/', function () {
 
 require __DIR__ . '/auth.php';
 
-
-// Backend routes
+/*
+|--------------------------------------------------------------------------
+| Backend Routes
+|--------------------------------------------------------------------------
+*/
 Route::prefix('backend')->name('backend.')->group(function () {
 
     Route::middleware(['admin'])->group(function () {
         Route::get('index', BackendHomeController::class)->name('index');
 
 
-        // Admin Setting routes
+        // Admin Setting
         Route::resource('admin/setting', AdminSettingController::class);
     });
     require __DIR__ . '/adminAuth.php';

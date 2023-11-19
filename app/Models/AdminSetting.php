@@ -18,6 +18,8 @@ class AdminSetting extends Model
 
 
 
+    /** @return string  */
+
     public function active()
     {
         return $this->active ? "<span class='badge bg-success'>مفعل</span>"
