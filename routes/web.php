@@ -36,9 +36,9 @@ Route::prefix('backend')->name('backend.')->group(function () {
 
     Route::middleware(['admin'])->group(function () {
         Route::get('index', BackendHomeController::class)->name('index');
-        // Admin Setting routes
-        // Route::get('admin/setting/index', [AdminSettingController::class, 'index'])->name('admin_setting.index');
-        // Route::get('admin/setting/edit', [AdminSettingController::class, 'index'])->name('admin_setting.index');
+
+
+        // Route Resource
         Route::resource('admin/setting', AdminSettingController::class);
     });
     require __DIR__ . '/adminAuth.php';

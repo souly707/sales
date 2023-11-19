@@ -8,6 +8,7 @@ use App\Models\AdminSetting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\Backend\AdminSettingRequest;
 
@@ -75,7 +76,6 @@ class AdminSettingController extends Controller
         // dd(hexdec(uniqid()));
         // dd(Str::uuid());
 
-        // dd($request->all());
         if ($setting->com_code == Auth::guard('admin')->user()->com_code) {
 
             $input['system_name']   = $request->system_name;
@@ -86,8 +86,12 @@ class AdminSettingController extends Controller
             $input['active']        = $request->active;
 
             if ($image = $request->file('logo')) {
-                $file_name = Str::uuid() . '.' . $image->extension();
 
+                if ($setting->photo != null && File::exists('backend/admins/logo/' . $setting->photo)) {
+                    unlink('backend/admins/logo/' . $setting->photo);
+                }
+
+                $file_name = Str::uuid() . '.' . $image->extension();
                 // dd($file_name);
                 $path = public_path('backend/admins/logo/' . $file_name);
 
@@ -99,6 +103,11 @@ class AdminSettingController extends Controller
             }
 
             $setting->update($input);
+
+            return redirect()->route('backend.setting.index')->with([
+                'message' => 'تم تحديث الملف التعريفي بنجاح',
+                'alert-type' => 'success'
+            ]);
         } else {
             abort(404);
         }
