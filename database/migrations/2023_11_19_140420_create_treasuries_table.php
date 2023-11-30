@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin_settings', function (Blueprint $table) {
+        Schema::create('treasuries', function (Blueprint $table) {
             $table->id();
-            $table->string('system_name');
-            $table->string('phone');
-            $table->string('photo')->nullable();
-            $table->string('address');
-            $table->string('general_alert')->nullable();
+            $table->string('name');
+            $table->unsignedTinyInteger('is_master')->defaultValue(0);
+            $table->unsignedBigInteger('last_receipt_exchange');
+            $table->unsignedBigInteger('last_receipt_collect');
             $table->unsignedBigInteger('added_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
+            $table->date('date'); // For Search
+            $table->unsignedBigInteger('com_code');
             $table->unsignedTinyInteger('active')->default(1);
-            $table->string('com_code');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin_settings');
+        Schema::dropIfExists('treasuries');
     }
 };
