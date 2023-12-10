@@ -69,20 +69,33 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">الاعدادات</div>
+                <div data-i18n="Layouts">الضبط العام</div>
             </a>
 
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('backend.setting.index') }}" class="menu-link">
-                        <div data-i18n="Without menu">الضبط العام</div>
+                        <div data-i18n="Without menu">الضبط</div>
                     </a>
                 </li>
-                {{-- <li class="menu-item">
+
+                <li class="menu-item">
                     <a href="{{ route('backend.treasuries.index') }}" class="menu-link">
-                        <div data-i18n="Without navbar"></div>
+                        <div data-i18n="Account">بيانات الخزن</div>
                     </a>
-                </li> --}}
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('backend.sales_material_types.index') }}" class="menu-link">
+                        <div data-i18n="Account">فئات الفواتير</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('backend.stores.index') }}" class="menu-link">
+                        <div data-i18n="Account">المخازن</div>
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -93,12 +106,12 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">الخزن</div>
+                <div data-i18n="Account Settings">Account Settings</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('backend.treasuries.index') }}" class="menu-link">
-                        <div data-i18n="Account">بيانات الخزن</div>
+                    <a href="javascript:void(0);" class="menu-link">
+                        <div data-i18n="Account">Account</div>
                     </a>
                 </li>
             </ul>

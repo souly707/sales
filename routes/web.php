@@ -4,6 +4,8 @@ use App\Http\Controllers\Backend\AdminSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\BackendHomeController;
+use App\Http\Controllers\Backend\SaleMaterialTypeController;
+use App\Http\Controllers\Backend\StoreController;
 use App\Http\Controllers\Backend\TreasuryController;
 
 /*
@@ -51,14 +53,14 @@ Route::prefix('backend')->name('backend.')->group(function () {
         Route::get('admin/add-treasuries-delivery/{id}', [TreasuryController::class, 'add_treasury_delivery'])->name('add.treasuries_delivery');
         Route::post('admin/treasuries-delivery/store/{id}', [TreasuryController::class, 'store_treasury_delivery'])->name('store.treasuries_delivery');
         Route::delete('admin/treasuries-delivery/delete/{id}', [TreasuryController::class, 'delete_treasury_delivery'])->name('delete.treasuries_delivery');
-
-
-
         // End Treasuries Delivery routes
+
 
         // Admin Setting
         Route::resource('admin/setting', AdminSettingController::class);
         Route::resource('admin/treasuries', TreasuryController::class);
+        Route::resource('admin/sales_material_types', SaleMaterialTypeController::class);
+        Route::resource('admin/stores', StoreController::class);
     });
     require __DIR__ . '/adminAuth.php';
 });
