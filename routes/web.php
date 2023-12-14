@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Backend\AdminSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Backend\BackendHomeController;
-use App\Http\Controllers\Backend\SaleMaterialTypeController;
 use App\Http\Controllers\Backend\StoreController;
+use App\Http\Controllers\Backend\InvUomController;
 use App\Http\Controllers\Backend\TreasuryController;
+use App\Http\Controllers\Backend\BackendHomeController;
+use App\Http\Controllers\Backend\AdminSettingController;
+use App\Http\Controllers\Backend\SaleMaterialTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +45,8 @@ Route::prefix('backend')->name('backend.')->group(function () {
         Route::get('index', BackendHomeController::class)->name('index');
 
         // Start Ajax routes
-        Route::post('admin/treasuries/search', [TreasuryController::class, 'ajax_search'])
-            ->name('treasuries.ajax_search');
+        Route::post('admin/treasuries/search', [TreasuryController::class, 'ajax_search'])->name('treasuries.ajax_search');
+        Route::post('admin/inv_uoms/search',   [InvUomController::class, 'ajax_search'])->name('inv_uoms.ajax_search');
 
         // End Ajax routes
 
@@ -61,6 +62,7 @@ Route::prefix('backend')->name('backend.')->group(function () {
         Route::resource('admin/treasuries', TreasuryController::class);
         Route::resource('admin/sales_material_types', SaleMaterialTypeController::class);
         Route::resource('admin/stores', StoreController::class);
+        Route::resource('admin/inv_uoms', InvUomController::class);
     });
     require __DIR__ . '/adminAuth.php';
 });

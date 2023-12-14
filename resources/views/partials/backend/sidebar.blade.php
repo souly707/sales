@@ -96,6 +96,12 @@
                         <div data-i18n="Account">المخازن</div>
                     </a>
                 </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('backend.inv_uoms.index') }}" class="menu-link">
+                        <div data-i18n="Account">وحدات القياس</div>
+                    </a>
+                </li>
             </ul>
         </li>
 

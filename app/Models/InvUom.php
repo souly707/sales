@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class InvUom extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name', 'is_master', 'added_by', 'updated_by', 'date', 'com_code', 'active'
+    ];
+
+
+    /** @return string  */
+
+    public function active()
+    {
+        return $this->active ? "<span class='badge bg-success'>مفعل</span>"
+            : "<span class='badge bg-danger'>غير مفعل</span>";
+    }
+
+    /** @return string  */
+
+    public function is_master()
+    {
+        return $this->is_master ? "رئيسية" : "تجزئة";
+    }
+}

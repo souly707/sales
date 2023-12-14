@@ -4,11 +4,9 @@
             <thead class="text-center">
                 <tr>
                     <th>#</th>
-                    <th>اسم الخزنة</th>
-                    <th>نوع الخزنة</th>
+                    <th>اسم وحدة القياس</th>
+                    <th>نوع وحدة القياس</th>
                     <th>حالة التفعيل</th>
-                    <th>اخر ايصال صرف</th>
-                    <th>اخر ايصال تفحصيل</th>
                     <th width="20%">التحكم</th>
                 </tr>
             </thead>
@@ -17,10 +15,8 @@
                 <tr>
                     <td>{{ $loop->index + 1}}</td>
                     <td>{{ $search->name }}</td>
-                    <td>{{ $search->is_master ? 'رئيسية' : 'فرعية' }}</td>
+                    <td>{{ $search->is_master ? 'رئيسية' : 'تجزئة' }}</td>
                     <td>{!! $search->active()!!}</td>
-                    <td>{{ $search->last_receipt_exchange}}</td>
-                    <td>{{ $search->last_receipt_collect}}</td>
                     <td>
                         <a href="{{ route('backend.treasuries.edit',$search->id) }}" class="btn btn-primary btn-sm"
                             data-id="{{ $search->id }}">

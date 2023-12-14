@@ -201,7 +201,7 @@ class TreasuryController extends Controller
             $search_by_text = $request->search_text;
             // \var_dump($request->search_text);
             $ajax_search = Treasury::where('name', 'LIKE', "%$search_by_text%")
-                ->orderBy('id', 'DESC')->paginate(1);
+                ->orderBy('id', 'DESC')->paginate(10);
 
             return \view('backend.treasuries.ajax.search', ['ajax_search' => $ajax_search]);
         }
